@@ -1,11 +1,12 @@
 <script setup>
-import aboutPhoto from "../assets/img/about/about-main1.jpg";
-
-import life01 from "../assets/img/about/life-01.jpg";
-import life02 from "../assets/img/about/life-02.jpg";
-import life03 from "../assets/img/about/life-03.jpg";
-import life04 from "../assets/img/about/life-04.jpg";
-import life05 from "../assets/img/about/life-05.jpg";
+import aboutPhoto from "../assets/img/about/about-main1.webp";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import life01 from "../assets/img/about/life-01.webp";
+import life02 from "../assets/img/about/life-02.webp";
+import life03 from "../assets/img/about/life-03.webp";
+import life04 from "../assets/img/about/life-04.webp";
+import life05 from "../assets/img/about/life-05.webp";
 import htmlLogo from "../assets/img/skills/html.svg";
 import cssLogo from "../assets/img/skills/css.svg";
 import javascriptLogo from "../assets/img/skills/javascript.svg";
@@ -54,8 +55,8 @@ cript>
         </h1>
 
         <p class="about-intro">
-          喜歡旅行、攝影與貓咪，也喜歡從生活中的觀察尋找設計靈感。我喜歡透過程式解決問題，並享受從需求分析、資訊架構規劃到介面設計與開發的完整過程。目前專注於
-          Vue 3 前端開發，持續透過專題與個人作品累積實作經驗。
+          我喜歡透過程式解決問題，並將想法轉化為實際產品。目前專注於 Vue 3
+          前端開發，持續透過團隊專題與個人作品累積實作經驗。我重視使用者體驗、資訊架構與介面細節，希望透過良好的設計與開發，打造直覺且易於使用的網站。
         </p>
       </div>
 
@@ -177,6 +178,26 @@ cript>
           <img :src="lifePhotos[2]" alt="life photo 3" />
         </div>
       </div>
+
+      <Swiper
+        :slides-per-view="1.15"
+        :space-between="14"
+        class="life-mobile-swiper"
+      >
+        <SwiperSlide
+          v-for="(photo, index) in [
+            lifePhotos[0],
+            lifePhotos[1],
+            lifePhotos[3],
+            lifePhotos[4],
+          ]"
+          :key="index"
+        >
+          <div class="life-photo">
+            <img :src="photo" alt="life photo" />
+          </div>
+        </SwiperSlide>
+      </Swiper>
     </section>
 
     <!-- Contact -->
@@ -356,6 +377,10 @@ cript>
 
 /* Life Outside Coding */
 
+.life-mobile-swiper {
+  display: none;
+}
+
 .life-section {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
@@ -529,6 +554,16 @@ cript>
 
   .about-photo {
     max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .about-photo img {
+    aspect-ratio: auto;
+    height: auto;
+  }
+
+  .about-skills {
+    justify-content: center;
   }
 
   .skill-grid {
@@ -555,6 +590,28 @@ cript>
 }
 
 @media (max-width: 600px) {
+  .life-small-photos,
+  .top-photos {
+    display: none;
+  }
+
+  .life-mobile-swiper {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .life-mobile-swiper .life-photo {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .mountain-photo {
+    height: auto;
+    aspect-ratio: 16 / 9;
+    margin-top: 18px;
+  }
+
   .about-page {
     width: min(100% - 28px, 1120px);
     padding: 42px 0 88px;
@@ -562,6 +619,14 @@ cript>
 
   .about-section {
     margin-top: 76px;
+  }
+
+  .about-skills {
+    justify-content: center;
+  }
+
+  .skill-item {
+    width: 140px;
   }
 
   .timeline-item {
@@ -597,15 +662,26 @@ cript>
     margin-top: 86px;
     padding: 38px 24px;
   }
+
+    /* lifePhotos[0] */
+  .life-mobile-swiper .swiper-slide:nth-child(1) img {
+    object-position: center 80%;
+  }
+
+  /* lifePhotos[4] */
+  .life-mobile-swiper .swiper-slide:nth-child(4) img {
+    object-position: center 60%;
+  }
+
 }
 
 @media (max-width: 420px) {
   .top-photos .life-photo {
-    height: 145px;
+    height: 250px;
   }
 
   .life-small-photos .life-photo {
-    height: 190px;
+    height: 250px;
   }
 
   .mountain-photo {

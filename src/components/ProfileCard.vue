@@ -18,7 +18,7 @@
     </div>
 
     <div class="profile-photo-box">
-      <img src="../assets/img/profile.jpg" alt="profile image" />
+      <img src="../assets/img/profile.webp" alt="profile image" />
     </div>
   </section>
 </template>
