@@ -1,5 +1,5 @@
 <script setup>
-import aboutPhoto from "../assets/img/about/about-main.jpg";
+import aboutPhoto from "../assets/img/about/about-main1.jpg";
 
 import life01 from "../assets/img/about/life-01.jpg";
 import life02 from "../assets/img/about/life-02.jpg";
