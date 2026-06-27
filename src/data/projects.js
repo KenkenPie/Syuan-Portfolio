@@ -1,8 +1,8 @@
-import communityCollegeImg from '../assets/img/projects/community-college.jpg'
-import pawToCrownImg from '../assets/img/projects/paw-to-crown.jpg'
-import catFoodReviewImg from '../assets/img/projects/cat-food-review.jpg'
-import rockPaperScissorsImg from '../assets/img/projects/rock-paper-scissors.jpg'
-import kyotoGuideImg from '../assets/img/projects/kyoto-guide.jpg'
+import communityCollegeImg from '../assets/img/projects/community-college.webp'
+import pawToCrownImg from '../assets/img/projects/paw-to-crown.webp'
+import catFoodReviewImg from '../assets/img/projects/cat-food-review.webp'
+import rockPaperScissorsImg from '../assets/img/projects/rock-paper-scissors.webp'
+import kyotoGuideImg from '../assets/img/projects/kyoto-guide.webp'
 export const projects = [
    {
     id: 2,

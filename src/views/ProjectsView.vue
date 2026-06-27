@@ -30,31 +30,28 @@ const playgroundProjects = computed(() => {
         </div>
       </div>
 
- <div class="featured-carousel">
-  <Swiper
-    class="featured-swiper"
-    :modules="[Navigation, Pagination]"
-    :slides-per-view="'auto'"
-    :centered-slides="true"
-    :space-between="-220"
-    :loop="featuredProjects.length > 2"
-    :grab-cursor="true"
-    :speed="700"
-    :navigation="true"
-    :pagination="{ clickable: true }"
-  >
-    <SwiperSlide
-      v-for="project in featuredProjects"
-      :key="project.id"
-      class="featured-slide"
-    >
-      <ProjectCard
-        :project="project"
-        variant="featured"
-      />
-    </SwiperSlide>
-  </Swiper>
-</div>
+      <div class="featured-carousel">
+        <Swiper
+          class="featured-swiper"
+          :modules="[Navigation, Pagination]"
+          :slides-per-view="'auto'"
+          :centered-slides="true"
+          :space-between="-220"
+          :loop="featuredProjects.length > 2"
+          :grab-cursor="true"
+          :speed="700"
+          :navigation="true"
+          :pagination="{ clickable: true }"
+        >
+          <SwiperSlide
+            v-for="project in featuredProjects"
+            :key="project.id"
+            class="featured-slide"
+          >
+            <ProjectCard :project="project" variant="featured" />
+          </SwiperSlide>
+        </Swiper>
+      </div>
     </section>
 
     <!-- 小作品 -->
@@ -74,6 +71,24 @@ const playgroundProjects = computed(() => {
           variant="compact"
         />
       </div>
+
+      <Swiper
+        class="playground-mobile-swiper"
+        :modules="[Pagination]"
+        :slides-per-view="'auto'"
+        :centered-slides="true"
+        :space-between="-24"
+        :grab-cursor="true"
+        :pagination="{ clickable: true }"
+      >
+        <SwiperSlide
+          v-for="project in playgroundProjects"
+          :key="project.id"
+          class="playground-mobile-slide"
+        >
+          <ProjectCard :project="project" variant="compact" />
+        </SwiperSlide>
+      </Swiper>
     </section>
   </main>
 </template>
@@ -125,10 +140,7 @@ const playgroundProjects = computed(() => {
 
   color: #263342;
 
-  font-family:
-    Georgia,
-    "Noto Serif TC",
-    serif;
+  font-family: Georgia, "Noto Serif TC", serif;
 
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
@@ -170,19 +182,13 @@ const playgroundProjects = computed(() => {
 ======================================== */
 
 .featured-slide {
-  width: min(
-    980px,
-    68vw,
-    calc(80vh * 16 / 9)
-  );
+  width: min(980px, 68vw, calc(80vh * 16 / 9));
 
   opacity: 0;
   transform: scale(0.68);
   transform-origin: center;
 
-  filter:
-    blur(3px)
-    saturate(0.68);
+  filter: blur(3px) saturate(0.68);
 
   pointer-events: none;
 
@@ -218,9 +224,7 @@ const playgroundProjects = computed(() => {
   opacity: 0.5;
   transform: scale(0.68);
 
-  filter:
-    blur(1.6px)
-    saturate(0.8);
+  filter: blur(1.6px) saturate(0.8);
 
   pointer-events: auto;
 }
@@ -236,9 +240,7 @@ const playgroundProjects = computed(() => {
   opacity: 0;
   transform: scale(0.6);
 
-  filter:
-    blur(4px)
-    saturate(0.55);
+  filter: blur(4px) saturate(0.55);
 
   pointer-events: none;
 }
@@ -343,6 +345,10 @@ const playgroundProjects = computed(() => {
    上面的標題完全不動。
 ======================================== */
 
+.playground-mobile-swiper {
+  display: none;
+}
+
 .playground-projects {
   /*
     大型桌機最大 1480px。
@@ -373,11 +379,7 @@ const playgroundProjects = computed(() => {
 
 @media (max-width: 1300px) {
   .featured-slide {
-    width: min(
-      900px,
-      70vw,
-      calc(76vh * 16 / 9)
-    );
+    width: min(900px, 70vw, calc(76vh * 16 / 9));
   }
 
   :deep(.featured-slide.swiper-slide-prev),
@@ -434,9 +436,7 @@ const playgroundProjects = computed(() => {
     opacity: 0.42;
     transform: scale(0.78);
 
-    filter:
-      blur(1px)
-      saturate(0.86);
+    filter: blur(1px) saturate(0.86);
   }
 
   :deep(.swiper-button-prev) {
@@ -459,28 +459,40 @@ const playgroundProjects = computed(() => {
 
 @media (max-width: 768px) {
   .playground-projects {
-    width: 100vw;
-
-    margin-left: calc(50% - 50vw);
-
-    display: flex;
-
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    gap: 18px;
-
-    padding: 0 20px 12px;
-
-    scroll-snap-type: x mandatory;
-
-    transform: none;
+    display: none;
   }
 
-  .playground-projects > * {
-    flex: 0 0 85%;
+  .playground-mobile-swiper {
+    display: block;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 0 0 54px;
+    overflow: visible;
+  }
 
-    scroll-snap-align: start;
+  .playground-mobile-slide {
+    width: 82%;
+    opacity: 0.55;
+    transform: scale(0.92);
+    transition:
+      transform 0.35s ease,
+      opacity 0.35s ease;
+  }
+
+  :deep(.playground-mobile-slide.swiper-slide-active) {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
+  }
+
+  :deep(.playground-mobile-slide.swiper-slide-prev),
+  :deep(.playground-mobile-slide.swiper-slide-next) {
+    opacity: 0.72;
+    transform: scale(0.94);
+  }
+
+  :deep(.playground-mobile-swiper .swiper-pagination) {
+    bottom: 12px;
   }
 
   :deep(.featured-slide.swiper-slide-active) {
@@ -505,8 +517,6 @@ const playgroundProjects = computed(() => {
 
   .playground-projects {
     width: calc(100vw - 28px);
-
-
 
     gap: 24px;
   }

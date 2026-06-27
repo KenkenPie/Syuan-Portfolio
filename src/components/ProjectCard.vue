@@ -328,7 +328,6 @@ const hasTechnologies = computed(() => {
 
 .project-top {
   min-width: 0;
-
   display: grid;
   align-content: start;
 }
@@ -877,53 +876,63 @@ const hasTechnologies = computed(() => {
 
     font-size: 0.78rem;
   }
+/* 小作品手機版：改成接近精選作品風格 */
 
-  /* 小作品手機版 */
-  .project-card--compact {
-    min-height: auto;
 
-    padding: 0;
 
-    border-radius: 22px;
-  }
+.project-card--compact .project-screen {
+  border-radius: 16px;
+}
 
-  .project-card--compact .project-image-panel {
-    padding: 16px;
-  }
+.project-card--compact .project-content {
+  padding: 18px 0 0;
+}
 
-  .project-card--compact .project-screen {
-    border-radius: 13px;
-  }
+.project-card--compact .project-category {
+  font-size: 0.68rem;
+  padding:0px 0px 0px 15px;
+}
 
-  .project-card--compact .project-content {
-    padding: 23px 20px 25px;
-  }
+.project-card--compact .project-title {
+  font-size: 1.65rem;
+  padding:0px 0px 0px 15px;
+}
 
-  .project-card--compact .project-title {
-    font-size: 1.5rem;
-  }
-  .project-card--compact .project-summary {
-    display: -webkit-box;
-    min-height: calc(1.75em * 3);
-    margin-top: 12px;
-    overflow: hidden;
-    font-size: 0.94rem;
-    line-height: 1.75;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-  }
+.project-card--compact .project-subtitle {
+  font-size: 0.86rem;
+  padding:0px 0px 0px 15px;
+}
 
-  .project-card--compact .project-technologies {
-    min-height: 0;
-  }
+.project-card--compact .project-summary {
+  display: block;
+  min-height: auto;
+  overflow: visible;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  -webkit-line-clamp: initial;
+  padding:0px 15px 0px 15px;
+}
 
-  .project-card--compact .project-actions {
-    padding-top: 22px;
-  }
+.project-card--compact .project-technologies {
+  min-height: 0;
+  padding:0px 15px 0px 15px;
+  margin-top: 14px;
+}
 
-  .project-card--compact .project-link {
-    width: 100%;
-  }
+.project-card--compact .project-actions {
+  padding-top: 18px;
+    padding:8px 15px 8px 15px;
+
+  margin-top: 0;
+}
+
+.project-card--compact .project-link {
+  padding:8px 15px 8px 15px;
+  width: 100%;
+  min-height: 46px;
+  font-size: 0.78rem;
+  margin:5px
+}
 }
 
 /* ========================================

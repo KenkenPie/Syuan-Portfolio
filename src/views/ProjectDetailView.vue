@@ -2,8 +2,8 @@
 import { computed } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 
-import communityImg from '../assets/img/projects/community-college.jpg'
-import nekoImg from '../assets/img/projects/paw-to-crown.jpg'
+import communityImg from '../assets/img/projects/community-college.webp'
+import nekoImg from '../assets/img/projects/paw-to-crown.webp'
 
 const route = useRoute()
 
