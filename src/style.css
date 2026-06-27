@@ -555,16 +555,36 @@ button {
 ========================= */
 
 @media (max-width: 900px) {
-  main {
+ main {
     padding: 36px 20px;
   }
 
   .profile-card {
+    width: 100%;
+    max-width: 100%;
     grid-template-columns: 1fr;
-    padding: 46px 30px;
+    padding: 46px 20px;
     text-align: center;
-    background: white;
+    background: transparent;
+    justify-items: center;
   }
+
+  .profile-text {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .profile-photo-box {
+    width: min(300px, 100%);
+    height: auto;
+    aspect-ratio: 360 / 460;
+    margin-inline: auto;
+  }
+}
 
   .profile-card h1 {
     font-size: 58px;
