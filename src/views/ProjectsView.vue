@@ -122,6 +122,7 @@ const playgroundProjects = computed(() => {
 
 .section-heading {
   margin-bottom: 28px;
+  margin-top: 50px;
 }
 
 .section-number {
@@ -424,7 +425,7 @@ const playgroundProjects = computed(() => {
 @media (max-width: 960px) {
   .projects-page {
     width: min(calc(100% - 32px), 1280px);
-    padding-top: 72px;
+    padding-top: 30px;
   }
 
   .featured-slide {
@@ -458,6 +459,11 @@ const playgroundProjects = computed(() => {
 ======================================== */
 
 @media (max-width: 768px) {
+.section-heading {
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+
   .playground-projects {
     display: none;
   }
